@@ -6,7 +6,7 @@
     <title>Civil Engineering World | We Cooked, We Served</title>
     <style>
         :root {
-            --primary-dark: #020617; /* Deeper Professional Navy */
+            --primary-dark: #020617;
             --accent-orange: #ff7e5f; 
             --glass-bg: rgba(255, 255, 255, 0.96);
             --yale-blue: #00356B; 
@@ -26,18 +26,18 @@
         }
 
         /* --- HERO --- */
-        .hero { height: 50vh; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; }
-        #canvas3d { width: 90px; height: 90px; margin-bottom: 25px; transform-style: preserve-3d; animation: rotateCube 18s linear infinite; }
-        .cube-face { position: absolute; width: 90px; height: 90px; border: 2.5px solid var(--accent-orange); background: rgba(255, 126, 95, 0.1); }
-        .front { transform: translateZ(45px); } .back { transform: rotateY(180deg) translateZ(45px); }
-        .right { transform: rotateY(90deg) translateZ(45px); } .left { transform: rotateY(-90deg) translateZ(45px); }
-        .top { transform: rotateX(90deg) translateZ(45px); } .bottom { transform: rotateX(-90deg) translateZ(45px); }
+        .hero { height: 40vh; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; }
+        #canvas3d { width: 80px; height: 80px; margin-bottom: 20px; transform-style: preserve-3d; animation: rotateCube 18s linear infinite; }
+        .cube-face { position: absolute; width: 80px; height: 80px; border: 2.5px solid var(--accent-orange); background: rgba(255, 126, 95, 0.1); }
+        .front { transform: translateZ(40px); } .back { transform: rotateY(180deg) translateZ(40px); }
+        .right { transform: rotateY(90deg) translateZ(40px); } .left { transform: rotateY(-90deg) translateZ(40px); }
+        .top { transform: rotateX(90deg) translateZ(40px); } .bottom { transform: rotateX(-90deg) translateZ(40px); }
         @keyframes rotateCube { from { transform: rotateX(0) rotateY(0); } to { transform: rotateX(360deg) rotateY(360deg); } }
-        .hero h1 { font-size: 2.8rem; color: white; margin: 0; letter-spacing: 3px; }
-        .hero p { color: var(--grayish-blue); letter-spacing: 2px; font-weight: 800; margin-top: 10px; }
+        .hero h1 { font-size: 2.2rem; color: white; margin: 0; letter-spacing: 3px; }
+        .hero p { color: var(--grayish-blue); letter-spacing: 2px; font-weight: 800; }
 
         /* --- CARDS --- */
-        .container { max-width: 850px; margin: -30px auto 60px; padding: 0 20px; }
+        .container { max-width: 850px; margin: 20px auto 60px; padding: 0 20px; }
         .card {
             background: var(--glass-bg);
             border-left: 6px solid var(--yale-blue);
@@ -47,39 +47,26 @@
             color: var(--yale-blue);
         }
         .card:hover { transform: translateY(-5px); background: white; }
-        .card.active .card-content { max-height: 4000px; opacity: 1; padding-top: 20px; }
-        .card h2 { margin: 0; font-size: 1.6rem; display: flex; justify-content: space-between; align-items: center; }
+        .card.active .card-content { max-height: 5000px; opacity: 1; padding-top: 20px; }
+        .card h2 { margin: 0; font-size: 1.5rem; display: flex; justify-content: space-between; align-items: center; }
         .card h2::after { content: '▾'; font-size: 1rem; color: var(--accent-orange); transition: 0.3s; }
         .card.active h2::after { transform: rotate(180deg); }
         .card-content { max-height: 0; opacity: 0; overflow: hidden; transition: all 0.6s ease; line-height: 1.6; }
 
-        /* --- INTERACTIVE TRIGGERS --- */
-        .hypertext-item, .spec-item { margin-bottom: 15px; border-bottom: 1px solid rgba(0, 53, 107, 0.08); padding-bottom: 10px; }
-        .hypertext-trigger, .spec-trigger { color: var(--accent-orange); text-decoration: underline; font-weight: 800; cursor: pointer; font-size: 1.1rem; display: inline-block; }
-        .hypertext-details, .spec-reveal { display: none; padding: 15px; background: rgba(0, 53, 107, 0.04); border-radius: 10px; margin-top: 10px; border-left: 3px solid var(--accent-orange); }
-        
-        /* --- GALLERY GRID --- */
-        .gallery-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px; margin-top: 15px; }
-        .gallery-item { background: #f1f5f9; padding: 10px; border-radius: 10px; text-align: center; transition: 0.3s; }
-        .gallery-item:hover { transform: scale(1.02); background: #e2e8f0; }
-        .gallery-item img { width: 100%; height: 140px; object-fit: cover; border-radius: 8px; margin-bottom: 8px; }
-        .gallery-item span { font-size: 0.85rem; font-weight: bold; color: var(--yale-blue); }
-
-        .marvel { margin-bottom: 10px; }
+        /* --- SUB-ITEMS --- */
+        .item-box { margin-bottom: 15px; border-bottom: 1px solid rgba(0, 53, 107, 0.08); padding-bottom: 10px; }
+        .trigger { color: var(--accent-orange); text-decoration: underline; font-weight: 800; cursor: pointer; display: inline-block; }
+        .reveal { display: none; padding: 15px; background: rgba(0, 53, 107, 0.04); border-radius: 10px; margin-top: 10px; border-left: 3px solid var(--accent-orange); }
         .marvel b { color: var(--yale-blue); display: block; margin-top: 5px; }
 
-        /* --- COMMENT BOX --- */
-        #comment-box {
-            background: var(--glass-bg);
-            padding: 30px;
-            border-radius: 15px;
-            margin-top: 50px;
-            color: var(--yale-blue);
-            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
-        }
+        /* --- GALLERY --- */
+        .gallery-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px; margin-top: 15px; }
+        .gallery-item { background: #f1f5f9; padding: 10px; border-radius: 10px; text-align: center; }
+        .gallery-item img { width: 100%; height: 150px; object-fit: cover; border-radius: 8px; background: #cbd5e1; }
+        .gallery-item span { font-size: 0.85rem; font-weight: bold; color: var(--yale-blue); display: block; margin-top: 5px; }
 
         /* --- FOOTER --- */
-        .contact-footer { background: #020617; color: var(--grayish-blue); padding: 50px 20px; text-align: center; border-top: 4px solid var(--accent-orange); }
+        .contact-footer { background: #020617; color: var(--grayish-blue); padding: 40px 20px; text-align: center; border-top: 4px solid var(--accent-orange); }
         .contact-footer a { color: var(--accent-orange); text-decoration: none; font-weight: bold; }
     </style>
 </head>
@@ -103,21 +90,21 @@
             <h2>THE MENU</h2>
             <div class="card-content">
                 <p><i>Our specialized engineering services, served fresh.</i></p>
-                <div class="hypertext-item">
-                    <span class="hypertext-trigger" onclick="toggleSubItem('m1', event)">1. Structural Steaks</span>
-                    <div id="m1" class="hypertext-details">The protein of the project. We design steel and concrete skeletons built for high-stress and seismic resistance.</div>
+                <div class="item-box">
+                    <span class="trigger" onclick="toggleSubItem('m1', event)">1. Structural Steaks</span>
+                    <div id="m1" class="reveal">The protein of the project. We design steel and concrete skeletons built for high-stress and seismic resistance.</div>
                 </div>
-                <div class="hypertext-item">
-                    <span class="hypertext-trigger" onclick="toggleSubItem('m2', event)">2. Blueprint Broth</span>
-                    <div id="m2" class="hypertext-details">The essential base. CAD and BIM modeling that defines the flavor and precision of the site.</div>
+                <div class="item-box">
+                    <span class="trigger" onclick="toggleSubItem('m2', event)">2. Blueprint Broth</span>
+                    <div id="m2" class="reveal">The essential base. CAD and BIM modeling that defines the flavor and precision of the site.</div>
                 </div>
-                <div class="hypertext-item">
-                    <span class="hypertext-trigger" onclick="toggleSubItem('m3', event)">3. Urban Stir-fry</span>
-                    <div id="m3" class="hypertext-details">A complex mix of highways, drainage, and utility networks for smart city logistics.</div>
+                <div class="item-box">
+                    <span class="trigger" onclick="toggleSubItem('m3', event)">3. Urban Stir-fry</span>
+                    <div id="m3" class="reveal">A complex mix of highways, drainage, and utility networks for smart city logistics.</div>
                 </div>
-                <div class="hypertext-item">
-                    <span class="hypertext-trigger" onclick="toggleSubItem('m4', event)">4. Foundation Flambé</span>
-                    <div id="m4" class="hypertext-details">Geotechnical soil mechanics and deep-pile foundation design for absolute stability.</div>
+                <div class="item-box">
+                    <span class="trigger" onclick="toggleSubItem('m4', event)">4. Foundation Flambé</span>
+                    <div id="m4" class="reveal">Geotechnical soil mechanics and deep-pile foundation design for absolute stability.</div>
                 </div>
             </div>
         </div>
@@ -125,140 +112,14 @@
         <div class="card" onclick="toggleCard(this, event)">
             <h2>CHEF'S SPECIALS</h2>
             <div class="card-content">
-                <p><i>Click a specialization to see 3 unique engineering marvels.</i></p>
+                <p><i>Select a field to view engineering marvels.</i></p>
 
-                <div class="spec-item">
-                    <span class="spec-trigger" onclick="toggleSubItem('s1', event)">Structure Engineering</span>
-                    <div id="s1" class="spec-reveal">
-                        <div class="marvel"><b>Burj Khalifa:</b> Employs a buttressed core for record height.</div>
-                        <div class="marvel"><b>Akashi Kaikyō Bridge:</b> The world's longest suspension span.</div>
-                        <div class="marvel"><b>The Pantheon:</b> Ancient masterpiece of unreinforced concrete.</div>
-                    </div>
+                <div class="item-box"><span class="trigger" onclick="toggleSubItem('s1', event)">Structure Engineering</span>
+                    <div id="s1" class="reveal"><div class="marvel"><b>Burj Khalifa:</b> Record height.</div><div class="marvel"><b>Akashi Bridge:</b> Longest suspension span.</div></div>
                 </div>
 
-                <div class="spec-item">
-                    <span class="spec-trigger" onclick="toggleSubItem('s2', event)">Construction and Management</span>
-                    <div id="s2" class="spec-reveal">
-                        <div class="marvel"><b>Great Wall of China:</b> A miracle of ancient logistics.</div>
-                        <div class="marvel"><b>Empire State Building:</b> Built in a record 410 days.</div>
-                        <div class="marvel"><b>Eurotunnel:</b> Massive underwater TBM coordination.</div>
-                    </div>
+                <div class="item-box"><span class="trigger" onclick="toggleSubItem('s2', event)">Construction & Management</span>
+                    <div id="s2" class="reveal"><div class="marvel"><b>Empire State Building:</b> Built in 410 days.</div><div class="marvel"><b>Great Wall:</b> Logistic miracle.</div></div>
                 </div>
 
-                <div class="spec-item">
-                    <span class="spec-trigger" onclick="toggleSubItem('s3', event)">Transportation Engineering</span>
-                    <div id="s3" class="spec-reveal">
-                        <div class="marvel"><b>Roman Appian Way:</b> The ancestor of all modern highways.</div>
-                        <div class="marvel"><b>Danyang–Kunshan Grand Bridge:</b> World's longest bridge structure.</div>
-                        <div class="marvel"><b>Pan-American Highway:</b> Connectivity across continents.</div>
-                    </div>
-                </div>
-
-                <div class="spec-item">
-                    <span class="spec-trigger" onclick="toggleSubItem('s4', event)">Water Resources Engineering</span>
-                    <div id="s4" class="spec-reveal">
-                        <div class="marvel"><b>Three Gorges Dam:</b> The peak of hydroelectric power production.</div>
-                        <div class="marvel"><b>The Delta Works:</b> Dutch defense against the rising North Sea.</div>
-                        <div class="marvel"><b>Hoover Dam:</b> Pioneer of mass-concrete thermal management.</div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-<div class="card" onclick="toggleCard(this, event)">
-            <h2>PROJECT GALLERY</h2>
-            <div class="card-content">
-                <p><i>Visual highlights of our latest structural achievements.</i></p>
-                <div class="gallery-grid">
-                    <div class="gallery-item">
-                        <img src="https://pin.it/1amrXUGCV" alt="Bridge">
-                        <span>Cityscape Wonders</span>
-                    </div>
-                    <div class="gallery-item">
-                        <img src="https://pin.it/6oWuRVrSj" alt="Tower">
-                        <span>Pyramid of Giza</span>
-                    </div>
-                    <div class="gallery-item">
-                        <img src="https://pin.it/2OLqF8RAj="Engineering">
-                        <span>Eiffel Tower</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div id="comment-box">
-            <h3>Community Feedback</h3>
-            <p>Leave a comment on our services below:</p>
-            <div id="disqus_thread"></div>
-        </div>
-    </div>
-
-    <footer class="contact-footer">
-        <h3>Connect with the Head Chef</h3>
-        <p>Michelle Ann Javellana</p>
-        <p>Email: <a href="mailto:mchllnnjvlln@gmail.com">mchllnnjvlln@gmail.com</a></p>
-        <div class="social-links">
-            <a href="https://instagram.com/mchlljvlln" target="_blank">Instagram</a> | 
-            <a href="#">Facebook</a>
-        </div>
-        <p style="margin-top: 30px; font-size: 0.8rem; opacity: 0.6;">&copy; 2026 Civil Engineering World</p>
-    </footer>
-
-    <script>
-        function toggleCard(el, event) {
-            const isTrigger = event.target.classList.contains('hypertext-trigger') || 
-                              event.target.classList.contains('spec-trigger');
-            if (isTrigger) return;
-            el.classList.toggle('active');
-        }
-
-        function toggleSubItem(id, event) {
-            event.stopPropagation();
-            const el = document.getElementById(id);
-            el.style.display = (el.style.display === 'block') ? 'none' : 'block';
-        }
-
-        // DISQUS LOGIC - UPDATED TO YOUR SHORTNAME
-        var disqus_config = function () {
-            this.page.url = window.location.href;
-            this.page.identifier = 'civil-world-final';
-        };
-        (function() {
-            var d = document, s = d.createElement('script');
-            s.src = 'https://civil-engineering-world.disqus.com/embed.js'; 
-            s.setAttribute('data-timestamp', +new Date());
-            (d.head || d.body).appendChild(s);
-        })();
-
-        // BACKGROUND PLEXUS
-        const canvas = document.getElementById('bg-canvas');
-        const ctx = canvas.getContext('2d');
-        let pts = [];
-        function init() {
-            canvas.width = window.innerWidth; canvas.height = window.innerHeight;
-            pts = [];
-            for (let i = 0; i < 70; i++) pts.push({ 
-                x: Math.random()*canvas.width, 
-                y: Math.random()*canvas.height, 
-                vx: (Math.random()-0.5)*0.4, 
-                vy: (Math.random()-0.5)*0.4 
-            });
-        }
-        function draw() {
-            ctx.clearRect(0,0,canvas.width,canvas.height); ctx.fillStyle = 'rgba(148,163,184,0.4)'; ctx.strokeStyle = 'rgba(148,163,184,0.1)';
-            pts.forEach((p, i) => {
-                p.x += p.vx; p.y += p.vy;
-                if (p.x < 0 || p.x > canvas.width) p.vx *= -1; if (p.y < 0 || p.y > canvas.height) p.vy *= -1;
-                ctx.beginPath(); ctx.arc(p.x, p.y, 2, 0, Math.PI*2); ctx.fill();
-                for (let j = i+1; j < pts.length; j++) {
-                    const d = Math.hypot(p.x - pts[j].x, p.y - pts[j].y);
-                    if (d < 125) { ctx.beginPath(); ctx.moveTo(p.x, p.y); ctx.lineTo(pts[j].x, pts[j].y); ctx.stroke(); }
-                }
-            });
-            requestAnimationFrame(draw);
-        }
-        window.addEventListener('resize', init); init(); draw();
-    </script>
-    <script id="dsq-count-scr" src="//civil-engineering-world.disqus.com/count.js" async></script>
-</body>
-</html>
+                <div class="item-box"><span class="trigger" onclick="toggleSubItem('s3', event)">Transportation Engineering</span>
